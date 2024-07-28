@@ -9,8 +9,10 @@
 # Create controller
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.3/deploy/static/provider/aws/deploy.yaml
 
+
 # Create Deployment
 vim vprodep.yaml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,6 +38,7 @@ kubectl apply -f vprodep.yaml
 
 # Create service
 vim vprosvc.yaml
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -64,6 +67,7 @@ hostname => Load balancer Endpoint URL
 # Create Ingress
 vim vproingress.yaml
 
+apiVersion : networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: vpro-ingress
